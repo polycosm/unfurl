@@ -32,7 +32,18 @@ setup(
         "Programming Language :: Python :: 3.7",
     ],
     install_requires=[
+        "boto3>=1.9.253",
+        "click>=7.0",
     ],
+    entry_points={
+        "console_scripts": [
+            "unfurlcopy = unfurl.main:main",
+        ],
+        "unfurl.providers": [
+            "file = unfurl.providers.file:FileProvider",
+            "s3 = unfurl.providers.s3:S3Provider",
+        ],
+    },
     extras_require=dict(
         dist=[
             "bumpversion>=0.5.3",
